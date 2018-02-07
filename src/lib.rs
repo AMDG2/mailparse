@@ -146,6 +146,14 @@ fn test_find_from_u8() {
 }
 
 impl<'a> MailHeader<'a> {
+    pub fn get_raw_key(&self) -> &'a [u8] {
+        self.key
+    }
+
+    pub fn get_raw_value(&self) -> &'a [u8] {
+        self.value
+    }
+
     /// Get the name of the header. Note that header names are case-insensitive.
     pub fn get_key(&self) -> Result<String, MailParseError> {
         Ok(
